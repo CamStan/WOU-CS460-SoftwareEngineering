@@ -1,0 +1,48 @@
+@font-face {
+    font-family: disco;
+    src: url("../fonts/disco.ttf");
+}
+
+/* Header  */
+#header {
+    margin: auto;
+    height: 13em;
+    line-height: 13em;
+    background: -webkit-radial-gradient(red, black);
+}
+
+#header nav {
+    font-size: 1.25em;
+    font-family: disco;
+    padding-left: 3em;
+    border: 0px;
+    background: rgba(0,0,0,0);
+}
+
+#header a:link, a:visited {
+    color: white;
+}
+
+#header a:hover {
+    color: darkgrey;
+}
+
+#headerText {
+    color: white;
+    text-align: center;
+    font-family: disco;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.borderBox {
+    padding: .25em;
+    border: .1em solid white;
+    box-sizing: border-box;
+}
+
+/* End Header */

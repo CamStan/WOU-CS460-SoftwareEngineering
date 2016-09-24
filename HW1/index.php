@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Bootstrap Example</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-<!--        Stylesheets-->
-        <link rel="stylesheet" href="styles/css/bootstrap.min.css">
-        
-<!--        Scripts-->
-        <script src="styles/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        
-        <div class="container">
-            <h1>My First Bootstrap Page</h1>
-            <p>Hello World!</p>
-        </div>
-        
+<?php include ('layouts/header.php'); ?>
+
+<center><h2>Contents of each page will go here</h2></center>
+
+    </div>
+    <!-- end container div -->
+
     </body>
-</html>
+
+    </html>
