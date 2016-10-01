@@ -29,7 +29,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Resume</a></li>
+                        <li><a href="#">Resum&eacute;</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
