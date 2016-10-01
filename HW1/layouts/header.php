@@ -22,7 +22,7 @@
             <!-- put in nav file? -->
             <div id="headerText" class="col-xs-6">
                 <span class="vcenter"><h1 class="borderBox">CAMERON STANAVIGE</h1>
-                <h4>Computer Science | Mathematics</h4></span>
+                <h3>Computer Science | Mathematics</h3></span>
             </div>
             <nav class="navbar navbar-default col-xs-6">
                 <div class="container-fluid vcenter">
