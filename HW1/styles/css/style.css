@@ -134,6 +134,9 @@ a:visited {
 
 /* Resume Page */
 
+
+/* Size and positioning of table and cells*/
+
 #table-resume {
     font-size: 1.2em;
     margin: auto;
@@ -142,20 +145,48 @@ a:visited {
     table-layout: fixed;
 }
 
+
+/* Font size of job titles */
+
 #table-resume h4 {
     font-size: 1.25em;
 }
+
+
+/* Center contents of cells vertically */
+
+#table-resume td {
+    vertical-align: middle;
+}
+
+
+/* Left column width */
 
 #table-resume td:nth-child(1) {
     width: 35%;
 }
 
+
+/* Right column width */
+
 #table-resume td:nth-child(2) {
     width: 65%;
 }
 
+
+/* Positioning of lists in skills cell */
+
+#skills-cell ul {
+    display: inline-block;
+    padding-right: 2.1em;
+}
+
+
+/* All first column cells that are not a category cell will align right */
+
 td:not(.resume-category):nth-child(1) {
     text-align: right;
 }
+
 
 /* End Resume Page */
