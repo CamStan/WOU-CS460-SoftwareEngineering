@@ -17,22 +17,6 @@ body {
 }
 
 
-/* Icon size */
-
-.icon {
-    width: 3em;
-    height: 3em;
-}
-
-
-/* Icon hover size */
-
-.icon:hover {
-    width: 4em;
-    height: 4em;
-}
-
-
 /* Vertically center contents */
 
 .vcenter {
@@ -108,7 +92,6 @@ a:visited {
 
 #footer {
     text-align: center;
-    margin: auto;
     height: 10em;
     line-height: 10em;
 }
@@ -125,7 +108,34 @@ a:visited {
 
 #footer li {
     display: inline-block;
-    padding: 0 2em 0 2em;
+    margin: 0 2em 0 2em;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+
+/* Keep hr from moving on hover*/
+
+#footer li:hover {
+    margin: -1em 2em -1em 2em;
+}
+
+
+/* Icon size */
+
+.icon {
+    width: 3em;
+    height: 3em;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+
+/* Icon hover size */
+
+.icon:hover {
+    width: 4em;
+    height: 4em;
 }
 
 
