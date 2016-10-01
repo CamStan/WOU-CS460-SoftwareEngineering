@@ -1,9 +1,39 @@
 @font-face {
-    font-family: disco;
-    src: url("../fonts/disco.ttf");
+    font-family: jura-light;
+    src: url(../fonts/Jura-Light.otf);
+}
+
+body {
+    font-family: jura-light;
+}
+
+/* Box to go around an item */
+.borderBox {
+    padding: .2em;
+    border: .1em solid white;
+    box-sizing: border-box;
+}
+
+/* Icon size */
+.icon {
+    width: 3em;
+    height: 3em;
+}
+/* Icon hover size */
+.icon:hover {
+    width: 4em;
+    height: 4em;
+}
+
+/* Vertically center contents */
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 /* Header  */
+/* Size of header and background design */
 #header {
     margin: auto;
     height: 13em;
@@ -11,38 +41,57 @@
     background: -webkit-radial-gradient(red, black);
 }
 
+/* Slight adjust to name size and position of subtext */
+#header h1 {
+    font-size: 3.5em;
+    margin-bottom: -.3em;
+}
+
+/* Size and positioning of nav bar */
 #header nav {
-    font-size: 1.25em;
-    font-family: disco;
+    font-size: 1.5em;
     padding-left: 3em;
     border: 0px;
     background: rgba(0,0,0,0);
 }
 
-#header a:link, a:visited {
+/* Nav links idle colors */
+#header a, a:link, a:visited {
     color: white;
 }
 
+/* Nav links hover colors */
 #header a:hover {
     color: darkgrey;
 }
 
+/* Color and position of name */
 #headerText {
+    padding-left: 6em;
     color: white;
     text-align: center;
-    font-family: disco;
-}
-
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-}
-
-.borderBox {
-    padding: .25em;
-    border: .1em solid white;
-    box-sizing: border-box;
 }
 
 /* End Header */
+
+/* Footer */
+/* Size and position of footer */
+#footer {
+    text-align: center;
+    margin: auto;
+    height: 10em;
+    line-height: 10em;
+}
+
+/* Remove list item markings */
+#footer ul {
+    list-style: none;
+}
+
+/* Positioning of social media links */
+#footer li {
+    display: inline-block;
+    padding: 0 2em 0 2em;
+}
+
+/* End Footer */
