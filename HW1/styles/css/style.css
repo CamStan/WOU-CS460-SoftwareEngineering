@@ -7,33 +7,46 @@ body {
     font-family: jura-light;
 }
 
+
 /* Box to go around an item */
+
 .borderBox {
     padding: .2em;
     border: .1em solid white;
     box-sizing: border-box;
 }
 
+
 /* Icon size */
+
 .icon {
     width: 3em;
     height: 3em;
 }
+
+
 /* Icon hover size */
+
 .icon:hover {
     width: 4em;
     height: 4em;
 }
 
+
 /* Vertically center contents */
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
 }
 
+
 /* Header  */
+
+
 /* Size of header and background design */
+
 #header {
     margin: auto;
     height: 13em;
@@ -41,41 +54,58 @@ body {
     background: -webkit-radial-gradient(red, black);
 }
 
+
 /* Slight adjust to name size and position of subtext */
+
 #header h1 {
     font-size: 3.5em;
     margin-bottom: -.3em;
 }
 
+
 /* Size and positioning of nav bar */
+
 #header nav {
     font-size: 1.5em;
     padding-left: 3em;
     border: 0px;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
 }
 
+
 /* Nav links idle colors */
-#header a, a:link, a:visited {
+
+#header a,
+a:link,
+a:visited {
     color: white;
 }
 
+
 /* Nav links hover colors */
+
 #header a:hover {
     color: darkgrey;
 }
 
+
 /* Color and position of name */
+
 #headerText {
     padding-left: 6em;
     color: white;
     text-align: center;
 }
 
+
 /* End Header */
 
+
 /* Footer */
+
+
 /* Size and position of footer */
+
 #footer {
     text-align: center;
     margin: auto;
@@ -83,15 +113,49 @@ body {
     line-height: 10em;
 }
 
+
 /* Remove list item markings */
+
 #footer ul {
     list-style: none;
 }
 
+
 /* Positioning of social media links */
+
 #footer li {
     display: inline-block;
     padding: 0 2em 0 2em;
 }
 
+
 /* End Footer */
+
+
+/* Resume Page */
+
+#table-resume {
+    font-size: 1.2em;
+    margin: auto;
+    width: 80%;
+    empty-cells: show;
+    table-layout: fixed;
+}
+
+#table-resume h4 {
+    font-size: 1.25em;
+}
+
+#table-resume td:nth-child(1) {
+    width: 35%;
+}
+
+#table-resume td:nth-child(2) {
+    width: 65%;
+}
+
+td:not(.resume-category):nth-child(1) {
+    text-align: right;
+}
+
+/* End Resume Page */
