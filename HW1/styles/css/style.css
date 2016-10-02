@@ -60,7 +60,6 @@ body {
 /* Nav links idle colors */
 
 #header a,
-a:link,
 a:visited {
     color: white;
 }
@@ -200,3 +199,17 @@ td:not(.resume-category):nth-child(1) {
 
 
 /* End Resume Page */
+
+/* Contact Page */
+
+#contact {
+    margin: auto;
+    width: 70%;
+    font-size: 1.5em;
+}
+
+#contact a:hover {
+    text-decoration: none;
+}
+
+/* End Contact Page */
