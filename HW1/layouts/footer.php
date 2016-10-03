@@ -1,5 +1,5 @@
 <div id="footer" class="row">
-    <div class="container-fluid vcenter">
+    <div class="container-fluid col-md-12 vcenter">
         <hr />
         <ul>
             <li>
