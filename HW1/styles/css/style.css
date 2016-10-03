@@ -61,7 +61,7 @@ body {
 
 /* Nav links idle colors */
 #header a,
-a:visited {
+#header a:visited {
     color: white;
 }
 

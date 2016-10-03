@@ -27,10 +27,10 @@
             <nav class="navbar navbar-default col-xs-6">
                 <div class="container-fluid vcenter">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Resum&eacute;</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="http://www.wou.edu/~cstanavige12/">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="resume.php">Resum&eacute;</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
             </nav>
