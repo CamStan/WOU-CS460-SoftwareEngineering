@@ -7,121 +7,21 @@ body {
     font-family: jura-light;
 }
 
-
 /* Box to go around an item */
-
 .borderBox {
     padding: .2em;
     border: .1em solid white;
     box-sizing: border-box;
 }
 
-
 /* Vertically center contents */
-
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
 }
 
-
-/* Header  */
-
-
-/* Size of header and background design */
-
-#header {
-    margin: auto;
-    height: 13em;
-    line-height: 13em;
-    background: -webkit-radial-gradient(red, black);
-}
-
-
-/* Slight adjust to name size and position of subtext */
-
-#header h1 {
-    font-size: 3.5em;
-    margin-bottom: -.3em;
-}
-
-
-/* Size and positioning of nav bar */
-
-#header nav {
-    font-size: 1.5em;
-    padding-left: 3em;
-    border: 0px;
-    background: rgba(0, 0, 0, 0);
-}
-
-
-/* Nav links idle colors */
-
-#header a,
-a:visited {
-    color: white;
-}
-
-
-/* Nav links hover colors */
-
-#header a:hover {
-    color: darkgrey;
-}
-
-
-/* Color and position of name */
-
-#headerText {
-    padding-left: 6em;
-    color: white;
-    text-align: center;
-}
-
-
-/* End Header */
-
-
-/* Footer */
-
-
-/* Size and position of footer */
-
-#footer {
-    text-align: center;
-    height: 10em;
-    line-height: 10em;
-}
-
-
-/* Remove list item markings */
-
-#footer ul {
-    list-style: none;
-}
-
-
-/* Positioning of social media links */
-
-#footer li {
-    display: inline-block;
-    margin: 0 2em 0 2em;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
-
-
-/* Keep hr from moving on hover*/
-
-#footer li:hover {
-    margin: -1em 2em -1em 2em;
-}
-
-
 /* Icon size */
-
 .icon {
     width: 3em;
     height: 3em;
@@ -129,23 +29,90 @@ a:visited {
     transition: all .3s ease-in-out;
 }
 
-
 /* Icon hover size */
-
 .icon:hover {
     width: 4em;
     height: 4em;
 }
 
+/* Header  */
+
+/* Size of header and background design */
+#header {
+    margin: auto;
+    height: 13em;
+    line-height: 13em;
+    background: -webkit-radial-gradient(red, black);
+}
+
+/* Slight adjust to name size and position of subtext */
+#header h1 {
+    font-size: 3.5em;
+    margin-bottom: -.3em;
+}
+
+/* Size and positioning of nav bar */
+#header nav {
+    font-size: 1.5em;
+    padding-left: 3em;
+    border: 0px;
+    background: rgba(0, 0, 0, 0);
+}
+
+/* Nav links idle colors */
+#header a,
+a:visited {
+    color: white;
+}
+
+/* Nav links hover colors */
+#header a:hover {
+    color: darkgrey;
+}
+
+/* Color and position of name */
+#headerText {
+    padding-left: 6em;
+    color: white;
+    text-align: center;
+}
+
+/* End Header */
+
+
+/* Footer */
+
+/* Size and position of footer */
+#footer {
+    text-align: center;
+    height: 10em;
+    line-height: 10em;
+}
+
+/* Remove list item markings */
+#footer ul {
+    list-style: none;
+}
+
+/* Positioning of social media links */
+#footer li {
+    display: inline-block;
+    margin: 0 2em 0 2em;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+/* Keep hr from moving on hover*/
+#footer li:hover {
+    margin: -1em 2em -1em 2em;
+}
 
 /* End Footer */
 
 
 /* Resume Page */
 
-
 /* Size and positioning of table and cells*/
-
 #table-resume {
     font-size: 1.2em;
     margin: auto;
@@ -154,60 +121,68 @@ a:visited {
     table-layout: fixed;
 }
 
-
 /* Font size of job titles */
-
 #table-resume h4 {
     font-size: 1.25em;
 }
 
-
 /* Center contents of cells vertically */
-
 #table-resume td {
     vertical-align: middle;
 }
 
-
 /* Left column width */
-
 #table-resume td:nth-child(1) {
     width: 35%;
 }
 
-
 /* Right column width */
-
 #table-resume td:nth-child(2) {
     width: 65%;
 }
 
-
 /* Positioning of lists in skills cell */
-
 #skills-cell ul {
     display: inline-block;
     padding-right: 2.1em;
 }
 
-
 /* All first column cells that are not a category cell will align right */
-
 td:not(.resume-category):nth-child(1) {
     text-align: right;
 }
 
-
 /* End Resume Page */
+
+
+/* About Page */
+
+/* Positioning of about me content */
+#about {
+    margin: auto;
+    width: 80%;
+    font-size: 1.3em;
+}
+
+/* Positioning of my picture */
+#about img {
+    padding-right: 1em;
+    float: left;
+}
+
+/* End About Page */
+
 
 /* Contact Page */
 
+/* Positioning of content */
 #contact {
     margin: auto;
     width: 70%;
     font-size: 1.5em;
 }
 
+/* Remove underline from links */
 #contact a:hover {
     text-decoration: none;
 }
