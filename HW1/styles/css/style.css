@@ -178,9 +178,9 @@ td:not(.resume-category):nth-child(1) {
 }
 
 /* Positioning of my picture */
-#about img {
-    padding-right: 1em;
-    float: left;
+#aboutImage {
+    text-align: center;
+    padding: 1.5em 0 1.5em 0;
 }
 
 /* End About Page */

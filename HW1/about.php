@@ -3,8 +3,10 @@
     <center>
         <h1>A Little About Me...</h1></center>
     <div id="about" class="row">
-        <div class="col-md-12">
+        <div id="aboutImage" class="col-md-6">
             <img src="images/Me.png" alt="Cameron">
+        </div>
+        <div class="col-md-6">
             <p>My name is Cameron Stanavige.</p>
             <p>I am a full time student at Western Oregon University pursuring a double major in Computer Science and Mathematics. I have a passion for furthering my education and knowledge and am looking for a future career that would allow just that.</p>
             <p>I enjoy problem solving and having the freedom to try and discover new things.</p>
