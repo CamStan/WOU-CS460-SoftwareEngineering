@@ -201,3 +201,22 @@ td:not(.resume-category):nth-child(1) {
 }
 
 /* End Contact Page */
+
+/* Layer Calculator Page */
+
+#calc {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#calc div {
+    padding: 0 0 0 1em;
+}
+
+/* #calc button {
+    font-size: .8em;
+} */
+
+/* End Layer Calculator Page */
