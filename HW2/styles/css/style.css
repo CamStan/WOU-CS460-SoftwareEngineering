@@ -225,4 +225,26 @@ td:not(.resume-category):nth-child(1) {
     padding: 0 0 0 1em;
 }
 
+#calcResults {
+    margin-top: 3em;
+}
+
+#calcResults caption {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-size: 1.3em;
+}
+
+#calcResults table {
+    margin: auto;
+    width: 50%;
+    table-layout: fixed;
+}
+
+#calcResults table th {
+    text-align: center;
+    width: 50%;
+}
+
 /* End Layer Calculator Page */

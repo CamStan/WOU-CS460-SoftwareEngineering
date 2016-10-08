@@ -12,9 +12,9 @@
                     <label for="printers">3D Printer: </label>
                     <select name="printer-select" id="printers" class="form-control">
                         <option value="choose">Please select a printer </option>
-                        <option value="cube">Cube Pro</option>
-                        <option value="makerbot">Makerbot</option>
-                        <option value="ultimaker">Ultimaker</option>
+                        <option value="cube">CubePro</option>
+                        <option value="makerbot">Makerbot Replicator 2</option>
+                        <option value="ultimaker">Ultimaker 2</option>
                         <option value="unknown">Unknown</option>
                     </select>
                 </div>
@@ -25,10 +25,10 @@
                 </div>
                 <div class="form-group radio">
                     <label for="radio-unit" class="radio-inline">
-                        <input type="radio" name="radio-unit" value="inches" checked/>in
+                        <input type="radio" name="radio-unit" value="in" checked/>in
                     </label>
                     <label for="radio-unit" class="radio-inline">
-                        <input type="radio" name="radio-unit" value="centimeters" />cm
+                        <input type="radio" name="radio-unit" value="cm" />cm
                     </label>
                 </div>
                 <div class="form-group">

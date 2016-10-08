@@ -1,5 +1,58 @@
 /*global $, jQuery, alert*/
 
+var printerSpecs = [{
+    id: "cube",
+    name: "CubePro",
+    microns: [70, 200, 300]
+}, {
+    id: "makerbot",
+    name: "Makerbot Replicator 2",
+    microns: [100, 200, 300]
+}, {
+    id: "ultimaker",
+    name: "Ultimaker 2",
+    microns: [20, 60, 150, 200, 400, 600]
+}, {
+    id: "unknown",
+    name: "All Printer Options",
+    microns: [20, 60, 70, 150, 200, 300, 400, 600]
+}];
+
+function cm_to_microns(value) {
+    "use strict";
+    return value * 10000;
+}
+
+function inches_to_microns(value) {
+    "use strict";
+    return cm_to_microns(value * 2.54);
+}
+
+function calculateLayers(value, thickness, unit) {
+    "use strict";
+    if (unit === "in") {
+        return inches_to_microns(value) / thickness;
+    } else {
+        return cm_to_microns(value) / thickness;
+    }
+}
+
+function createCalcTable(name, value, unit) {
+    "use strict";
+    var printerObject = $.grep(printerSpecs, function (obj) {
+            return obj.id === name;
+        }),
+        calcTable = $('<table>', {
+            "class": 'table table-striped table-bordered'
+        }),
+        tName = $('<caption>').text(printerObject[0].name),
+        tColumns = $('<thead><tr><th>Resolution<small> (<em>in microns</em>)</small></th><th>Layers</th></tr></thead>');
+    tName.appendTo(calcTable);
+    tColumns.appendTo(calcTable);
+    //    alert(printerObject[0].name);
+    return calcTable;
+}
+
 function validatePrinter(printerObject, helpBlock) {
     "use strict";
     var pSel = $('#printer-selector');
@@ -35,11 +88,14 @@ function validateHeight(heightValue, helpBlock) {
 
 $("#calcLayers").submit(function (event) {
     "use strict";
-    var printerObject = $('#printers').val(),
+    event.preventDefault();
+    var printerName = $('#printers').val(),
         helpBlock = $('span.help-block'),
-        heightValue = $('#height').val().trim();
-    if (validatePrinter(printerObject, helpBlock) && validateHeight(heightValue, helpBlock)) {
-        alert(printerObject + heightValue);
+        heightValue = $('#height').val().trim(),
+        unit = $('input[name=radio-unit]:checked').val();
+    if (validatePrinter(printerName, helpBlock) && validateHeight(heightValue, helpBlock)) {
+        //        createCalcTable(printerName, heightValue, unit);
+        $('#calcResults').empty();
+        $('#calcResults').append(createCalcTable(printerName, heightValue, unit));
     }
-    return false;
 });
