@@ -35,6 +35,14 @@ body {
     height: 4em;
 }
 
+/* Hidden help block */
+.help-block {
+    margin: auto;
+    margin-top: 1em;
+    width: 30%;
+    color: red;
+}
+
 /* Header  */
 
 /* Size of header and background design */
@@ -204,6 +212,7 @@ td:not(.resume-category):nth-child(1) {
 
 /* Layer Calculator Page */
 
+/* Positioning of layer calculator */
 #calc {
     margin: auto;
     width: 80%;
@@ -211,12 +220,9 @@ td:not(.resume-category):nth-child(1) {
     font-size: 1.3em;
 }
 
+/* Spacing inbetween calculator elements */
 #calc div {
     padding: 0 0 0 1em;
 }
-
-/* #calc button {
-    font-size: .8em;
-} */
 
 /* End Layer Calculator Page */
