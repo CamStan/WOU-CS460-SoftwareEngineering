@@ -29,7 +29,10 @@
 
 </div>
 <!-- end container div -->
-
+    <!--        Scripts-->
+    <script src="styles/js/bootstrap.min.js"></script>
+    <script src="styles/js/jquery-3.1.1.min.js"></script>
+    <script src="styles/js/myScripts.js"></script>
 </body>
 
 </html>

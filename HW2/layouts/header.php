@@ -9,9 +9,6 @@
     <!--        Stylesheets-->
     <link rel="stylesheet" href="styles/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/css/style.css">
-
-    <!--        Scripts-->
-    <script src="styles/js/bootstrap.min.js"></script>
 </head>
 
 <body>
