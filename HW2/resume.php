@@ -1,13 +1,13 @@
 <?php include ('layouts/header.php'); ?>
-
-    <center>
-        <h1>Resum&eacute;</h1></center>
+    
+    <center><h1>Resum&eacute;</h1></center>
+    <!-- Table for my resume information -->
     <table class="table table-striped table-bordered" id="table-resume">
         <tr>
             <td class="resume-category">
                 <h2>Education</h2>
             </td>
-            <td></td>
+            <td><!-- Empty filler cell next to category --></td>
         </tr>
         <tr>
             <td>
@@ -28,7 +28,7 @@
             <td class="resume-category">
                 <h2>Experience</h2>
             </td>
-            <td></td>
+            <td><!-- Empty filler cell next to category --></td>
         </tr>
         <tr>
             <td>
@@ -140,4 +140,4 @@
         </tr>
     </table>
 
-    <?php include ('layouts/footer.php'); ?>
+<?php include ('layouts/footer.php'); ?>

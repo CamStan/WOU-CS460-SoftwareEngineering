@@ -1,3 +1,4 @@
+/* Default font for this website */
 @font-face {
     font-family: jura-light;
     src: url(../fonts/Jura-Light.otf);
@@ -128,6 +129,11 @@ body {
     width: 80%;
 }
 
+/* Remove underline on 3D Pritning Layer Calculator link */
+#home p a {
+    text-decoration: none;
+}
+
 /* End Home Page */
 
 
@@ -225,10 +231,12 @@ td:not(.resume-category):nth-child(1) {
     padding: 0 0 0 1em;
 }
 
+/* Spacing between calculator and table */
 #calcResults {
     margin-top: 3em;
 }
 
+/* Positioning and style of table name */
 #calcResults caption {
     text-align: center;
     font-weight: bold;
@@ -236,17 +244,20 @@ td:not(.resume-category):nth-child(1) {
     font-size: 1.3em;
 }
 
+/* Layout of resulting table */
 #calcResults table {
     margin: auto;
     width: 50%;
     table-layout: fixed;
 }
 
+/* Positioning and size of column names */
 #calcResults table th {
     text-align: center;
     width: 50%;
 }
 
+/* Text positioning and borders on cells in table */
 #calcResults td {
     text-align: center;
     border: solid 1px lightgray;

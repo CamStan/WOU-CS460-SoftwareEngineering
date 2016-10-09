@@ -1,7 +1,6 @@
 <?php include ('layouts/header.php'); ?>
-
-    <center>
-        <h1>Contact Me</h1></center>
+    <!-- Contact page. Will eventually add a contact form. -->
+    <center><h1>Contact Me</h1></center>
     <div id="contact" class="row">
         <div class="col-md-12">
             <p>If you would like to contact me, the following options are ordered by preference: </p>
@@ -14,4 +13,4 @@
         </div>
     </div>
 
-    <?php include ('layouts/footer.php'); ?>
+<?php include ('layouts/footer.php'); ?>

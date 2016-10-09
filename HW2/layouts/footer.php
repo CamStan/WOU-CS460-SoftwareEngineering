@@ -1,3 +1,4 @@
+<!-- Social media footer to go on each page -->
 <div id="footer" class="row">
     <div class="container-fluid col-md-12 vcenter">
         <hr />
@@ -25,11 +26,10 @@
             </li>
         </ul>
     </div>
-</div>
+</div><!-- End footer -->
 
-</div>
-<!-- end container div -->
-    <!--        Scripts-->
+</div><!-- end container div -->
+    <!-- Scripts -->
     <script src="styles/js/bootstrap.min.js"></script>
     <script src="styles/js/jquery-3.1.1.min.js"></script>
     <script src="styles/js/myScripts.js"></script>
