@@ -42,7 +42,7 @@
                 <ul>
                     <li>One-on-one and group tutoring of mathematics students</li>
                     <li>Grading for two Applied Descrete Mathematics courses</li>
-                    <li>Aid in the opeation of walk-in math tutoring cetner on campus</li>
+                    <li>Aid in the operation of walk-in math tutoring center on campus</li>
                 </ul>
             </td>
         </tr>
@@ -58,7 +58,7 @@
                 <ul>
                     <li>Operate and maintain artillary equipment in a high-stress environment</li>
                     <li>Responsible for $2.5 million of equipment</li>
-                    <li>Training small groups of Soldiers to ensure constant state of rediness</li>
+                    <li>Training small groups of Soldiers to ensure constant state of readiness</li>
                     <li>Evaluate Soldiers under command with high level of detail and accuracy</li>
                 </ul>
             </td>
