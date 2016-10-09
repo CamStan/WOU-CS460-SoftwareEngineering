@@ -38,7 +38,7 @@
             <span class="help-block hidden">Error text goes here</span>
         </div>
         <div id="calcResults">
-            <!--            Javascript will put results here-->
+            <!-- Javascript will put results here -->
         </div>
     </div>
 

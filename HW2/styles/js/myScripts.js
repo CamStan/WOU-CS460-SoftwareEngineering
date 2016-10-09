@@ -31,9 +31,9 @@ function inches_to_microns(value) {
 function calculateLayers(value, thickness, unit) {
     "use strict";
     if (unit === "in") {
-        return inches_to_microns(value) / thickness;
+        return Math.ceil(inches_to_microns(value) / thickness);
     } else {
-        return cm_to_microns(value) / thickness;
+        return Math.ceil(cm_to_microns(value) / thickness);
     }
 }
 
@@ -49,7 +49,15 @@ function createCalcTable(name, value, unit) {
         tColumns = $('<thead><tr><th>Resolution<small> (<em>in microns</em>)</small></th><th>Layers</th></tr></thead>');
     tName.appendTo(calcTable);
     tColumns.appendTo(calcTable);
-    //    alert(printerObject[0].name);
+    printerObject[0].microns.forEach(function (res) {
+        var layers = calculateLayers(value, res, unit),
+            trow = $('<tr>'),
+            tres = $('<td>').text(res),
+            tlayers = $('<td>').text(layers);
+        tres.appendTo(trow);
+        tlayers.appendTo(trow);
+        trow.appendTo(calcTable);
+    });
     return calcTable;
 }
 
@@ -58,8 +66,9 @@ function validatePrinter(printerObject, helpBlock) {
     var pSel = $('#printer-selector');
     if (printerObject === "choose") {
         pSel.addClass("has-error has-feedback");
-        helpBlock.text("Please select a printer");
+        helpBlock.text("Please select a printer.");
         helpBlock.removeClass("hidden");
+        $('#calcResults').empty();
         return false;
     } else {
         pSel.removeClass("has-error has-feedback");
@@ -74,9 +83,10 @@ function validateHeight(heightValue, helpBlock) {
         error = $('span.glyphicon');
     if (heightValue === "" || isNaN(heightValue)) {
         hInput.addClass("has-error has-feedback");
-        helpBlock.text("Please enter a valid height");
+        helpBlock.text("Please enter a valid height.");
         helpBlock.removeClass("hidden");
         error.removeClass("hidden");
+        $('#calcResults').empty();
         return false;
     } else {
         hInput.removeClass("has-error has-feedback");
@@ -94,8 +104,9 @@ $("#calcLayers").submit(function (event) {
         heightValue = $('#height').val().trim(),
         unit = $('input[name=radio-unit]:checked').val();
     if (validatePrinter(printerName, helpBlock) && validateHeight(heightValue, helpBlock)) {
-        //        createCalcTable(printerName, heightValue, unit);
         $('#calcResults').empty();
         $('#calcResults').append(createCalcTable(printerName, heightValue, unit));
+        $('#printers').prop('selectedIndex', 0);
+        $('#height').val("");
     }
 });

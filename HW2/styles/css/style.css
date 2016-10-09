@@ -247,4 +247,9 @@ td:not(.resume-category):nth-child(1) {
     width: 50%;
 }
 
+#calcResults td {
+    text-align: center;
+    border: solid 1px lightgray;
+}
+
 /* End Layer Calculator Page */
