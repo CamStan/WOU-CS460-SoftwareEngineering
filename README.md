@@ -14,4 +14,4 @@ The website for HW1 and HW2 will be available at http://www.wou.edu/~cstanavige1
 
 ### Repo Owner ###
 
-* Cameron
+* Cameron Stanavige
