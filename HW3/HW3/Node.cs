@@ -4,6 +4,7 @@
     /// A simple singly linked node class.
     /// 
     /// This code is referenced from a similar Java class written by Scot Morse.
+    /// Modified by Cameron Stanavige
     /// </summary>
     class Node
     {
@@ -25,12 +26,20 @@
         /// <summary>
         /// Property to get and set the data contents of this Node.
         /// </summary>
-        public object Data { get; set; }
+        public object Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
 
         /// <summary>
         /// Property to get and set the Node that this Node is being placed
         /// on top of in the chain.
         /// </summary>
-        public Node NextNode { get; set; }
+        public Node NextNode
+        {
+            get { return nextNode; }
+            set { nextNode = value; }
+        }
     }
 }
