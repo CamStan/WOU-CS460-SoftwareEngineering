@@ -4,6 +4,7 @@
     /// Singly linked stack implementation of IStackADT.
     /// 
     /// This code is referenced from a similar Java class written by Scot Morse.
+    /// Modified by Cameron Stanavige
     /// </summary>
     class LinkedStack : IStackADT
     {
@@ -18,7 +19,7 @@
         }
 
         /// <summary>
-        /// Get and set the Node that is on the stop of this stack.
+        /// Property to get and set the Node that is on the stop of this stack.
         /// </summary>
         public Node TopNode
         {
