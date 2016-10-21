@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "GetPage";
+}
+
+<center><h2>HTTP GET Example</h2></center>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <!-- Form to demonstrate GET. Takes two words and outputs the camel case and pascal case -->
+        <form method="get" class="form-inline">
+            <!-- Group for first word -->
+            <div class="form-group">
+                <label for="word1">Enter a word: </label>
+                <input type="text" name="word1" value="" placeholder="Enter a word" />
+            </div>
+            <!-- Group for second word -->
+            <div class="form-group">
+                <label for="word2">Enter another word: </label>
+                <input type="text" name="word2" value="" placeholder="Enter a word" />
+            </div>
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+        <!-- Output messages of the camel and pascal cases based on the two words the user input -->
+        <center>
+            <h4>@ViewBag.caseHeader</h4>
+            <p>@ViewBag.camelMessage<br />@ViewBag.pascalMessage</p>
+        </center>
+    </div>
+</div>
+
