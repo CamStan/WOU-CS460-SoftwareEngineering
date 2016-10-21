@@ -3,5 +3,36 @@
     ViewBag.Title = "PostPage";
 }
 
-<h2>PostPage</h2>
+<center><h2>HTTP POST Example</h2></center>
 
+<div class="row">
+    <div class="col-md-8 col-md-offset-3">
+        <!-- Form to demonstrate POST. Takes username and password lengths and performs some algebra on them. -->
+        <form method="post" class="form-inline">
+            <!-- Group for username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" value="" />
+            </div>
+            <!-- Group for password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" maxlength="30" value="" />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <!-- Output message that shows the lengths and three algebra operations-->
+        @if (ViewBag.data != null)
+        {
+            <div>
+                <h4>@ViewBag.message1<br />@ViewBag.message2</h4>
+                <ul>
+                    @foreach (var i in ViewBag.data)
+                    {
+                        <li>@i</li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
