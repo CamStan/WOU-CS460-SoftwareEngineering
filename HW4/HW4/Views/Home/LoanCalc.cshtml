@@ -3,5 +3,35 @@
     ViewBag.Title = "LoanCalc";
 }
 
-<h2>LoanCalc</h2>
+<h2>Loan Calculator</h2>
+
+<form method="">
+    <div class="form-group row">
+        <label for="principle" class="col-md-1 col-form-label">Principle</label>
+        <div class="input-group col-md-3">
+            <span class="input-group-addon">$</span>
+            <input type="number" class="form-control" name="principle" min="100" max="250000" step="100" maxlength="6" value="1000" />
+            <span class="input-group-addon">.00</span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="interest" class="col-md-1 col-form-label">Interest Rate</label>
+        <div class="input-group col-md-3">
+            <input type="number" class="form-control" name="interest" min="5.0" max="36.00" step="0.01" maxlength="3" value="7.99" />
+            <span class="input-group-addon">%</span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="term" class="col-md-1 col-form-label">Term</label>
+        <div class="input-group col-md-3">
+            <input type="number" class="form-control" name="term" min="1" max="50" step="1" value="2" />
+            <span class="input-group-addon">years</span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-offset-1 col-md-3">
+            <button type="submit" class="btn btn-primary">Calculate Payment</button>
+        </div>
+    </div>
+</form>
 
