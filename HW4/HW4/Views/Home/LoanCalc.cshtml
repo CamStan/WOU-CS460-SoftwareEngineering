@@ -1,37 +1,74 @@
 ﻿
 @{
     ViewBag.Title = "LoanCalc";
+
+    // The initial values for each of the input fields
+    var p = 1000;
+    var i = 7.99;
+    var t = 2;
+
+    // After POST is sent, keep the input fields the same as what the user submitted
+    if (IsPost)
+    {
+        p = Request["principal"].AsInt();
+        i = Math.Round(Request["interest"].AsFloat(), 2);
+        t = Request["term"].AsInt();
+    }
 }
 
-<h2>Loan Calculator</h2>
 
-<form method="">
-    <div class="form-group row">
-        <label for="principle" class="col-md-1 col-form-label">Principle</label>
-        <div class="input-group col-md-3">
-            <span class="input-group-addon">$</span>
-            <input type="number" class="form-control" name="principle" min="100" max="250000" step="100" maxlength="6" value="1000" />
-            <span class="input-group-addon">.00</span>
-        </div>
+<h2 class="col-md-offset-1">Loan Calculator</h2>
+<div class="row">
+    <div class="col-md-4">
+        <!-- Form for the Loan Calculator -->
+        <form method="post">
+            <!-- Group for principle input -->
+            <div class="form-group row">
+                <label for="principal" class="col-md-3 col-form-label">Principal</label>
+                <div class="input-group col-md-9">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" class="form-control" name="principal" min="50" max="999999" step="1" maxlength="6" value="@p" />
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+            <!-- Group for interest input -->
+            <div class="form-group row">
+                <label for="interest" class="col-md-3 col-form-label">Interest Rate</label>
+                <div class="input-group col-md-9">
+                    <input type="number" class="form-control" name="interest" min="1.0" max="36.00" step="0.01" maxlength="3" value="@i" />
+                    <span class="input-group-addon">%</span>
+                </div>
+            </div>
+            <!-- Group for term input -->
+            <div class="form-group row">
+                <label for="term" class="col-md-3 col-form-label">Term</label>
+                <div class="input-group col-md-9">
+                    <input type="number" class="form-control" name="term" min="1" max="50" step="1" value="@t" />
+                    <span class="input-group-addon">years</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn btn-primary">Calculate Payment</button>
+                </div>
+            </div>
+        </form>
+        <!-- Error message if any of the input fields were empty on submit -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="panel panel-danger col-md-offset-3 col-md-9">
+                <div class="panel-heading"><center>@ViewBag.Error</center></div>
+            </div>
+        }
     </div>
-    <div class="form-group row">
-        <label for="interest" class="col-md-1 col-form-label">Interest Rate</label>
-        <div class="input-group col-md-3">
-            <input type="number" class="form-control" name="interest" min="5.0" max="36.00" step="0.01" maxlength="3" value="7.99" />
-            <span class="input-group-addon">%</span>
+    <!-- Div to display the calculated monthly payments and sum of payments -->
+    @if (ViewBag.Monthly != null)
+    {
+        <div class="col-md-8">
+            <div class="jumbotron col-md-offset-2 col-md-10">
+                <h2>Monthly Payment: $@ViewBag.Monthly</h2>
+                <h2>Sum of Payments: $@ViewBag.Sum</h2>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="term" class="col-md-1 col-form-label">Term</label>
-        <div class="input-group col-md-3">
-            <input type="number" class="form-control" name="term" min="1" max="50" step="1" value="2" />
-            <span class="input-group-addon">years</span>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-md-offset-1 col-md-3">
-            <button type="submit" class="btn btn-primary">Calculate Payment</button>
-        </div>
-    </div>
-</form>
-
+    }
+</div>
