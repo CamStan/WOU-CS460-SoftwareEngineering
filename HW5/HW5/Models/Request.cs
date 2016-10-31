@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace HW5.Models
 {
+    /// <summary>
+    /// A change of major/minor/advisor Request object. This object contains the V#, First and Last
+    /// name, date submitted, phone number, catalog year, email, and the updated major, minor, and advisor
+    /// of the student making the request.
+    /// </summary>
     public class Request
     {
         [Display(Name = "V#:"),DisplayFormat(DataFormatString = "{0:D8}"), Required]

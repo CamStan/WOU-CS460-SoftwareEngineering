@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace HW5.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        /// <summary>
+        /// GET: Home
+        /// Gets the View for the home page of HW5
+        /// </summary>
+        /// <returns>The View object for Home/Index</returns>
         public ActionResult Index()
         {
             return View();
