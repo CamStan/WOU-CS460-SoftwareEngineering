@@ -1,0 +1,24 @@
+Cameron Stanavige
+CS460_HW5
+
+Installation, Version, and Script Requirements
+
+    Software Requirements:
+        Microsoft Visual Studio
+            Version: 14.0.25431.01 Update 3
+        Microsoft .NET Framework
+            Version 4.6.01586
+        Microsoft.AspNet.Mvc
+            Version 5.2.3
+        Entity Framework
+            Version 6.1.3
+            
+    Scripts and Files:
+        initDB.bat
+            Run before building the project to create needed database
+        initDB_mod.bat
+            Run if initDB.bat causes an error and a named pipline is needed
+        initDB.sql
+            SQL file run by initDB.bat to create the database
+        Requests.csv
+            CSV file used by initDB.sql to populate database with initial data
