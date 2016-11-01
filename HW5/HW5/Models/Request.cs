@@ -10,6 +10,8 @@ namespace HW5.Models
     /// </summary>
     public class Request
     {
+        public int ID { get; set; }
+
         [Display(Name = "V#:"),DisplayFormat(DataFormatString = "{0:D8}"), Required]
         public int VNo { get; set; }
 

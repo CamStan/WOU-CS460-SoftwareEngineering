@@ -16,14 +16,14 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- V# -->
                 @Html.LabelFor(model => model.VNo, htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-lg-9">
-                    @Html.EditorFor(model => model.VNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "########", @min = "00000001", @max = "99999999" } })
+                    @Html.EditorFor(model => model.VNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "########", @min = "00000001", @max = "99999999", maxlength = "8" } })
                     @Html.ValidationMessageFor(model => model.VNo, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group"><!-- Date -->
                 @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-lg-9">
                     @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @placeholder = "mm/dd/yyyy" } })
@@ -33,7 +33,7 @@
         </div><br />
 
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- Last Name -->
                 @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-lg-9">
                     @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"><!-- First Name -->
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-lg-9">
                     @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
@@ -51,14 +51,14 @@
         </div><br />
 
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- Phone Number -->
                 @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9">
-                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "5551234567", @min = "1110000000", @max = "9999999999" } })
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "5551234567", @min = "1110000000", @max = "9999999999", @maxlength = "10" } })
                     @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group"><!-- Email -->
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9">
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "something@myemail.com" } })
@@ -68,7 +68,7 @@
         </div><br />
 
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- Catalog Year -->
                 @Html.LabelFor(model => model.CatalogYear, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9">
                     @Html.DropDownListFor(model => model.CatalogYear, new SelectList(new string[] { "2010-11", "2011-12", "2012-13", "2013-14", "2014-15", "2015-16", "2016-17" }), new { @class = "form-control" })
@@ -78,7 +78,7 @@
         </div><br />
 
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- Major -->
                 @Html.LabelFor(model => model.Major, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9">
                     @Html.EditorFor(model => model.Major, new { htmlAttributes = new { @class = "form-control" } })
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"><!-- Minor -->
                 @Html.LabelFor(model => model.Minor, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-8">
                     @Html.EditorFor(model => model.Minor, new { htmlAttributes = new { @class = "form-control" } })
@@ -96,7 +96,7 @@
         </div><br /> 
 
         <div class="row form-inline">
-            <div class="form-group">
+            <div class="form-group"><!-- Advisor -->
                 @Html.LabelFor(model => model.Advisor, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9">
                     @Html.EditorFor(model => model.Advisor, new { htmlAttributes = new { @class = "form-control" } })
