@@ -21,17 +21,18 @@ GO
 -- ########### Users ###########
 CREATE TABLE [dbo].[Requests]
 (
+    [ID] INT IDENTITY (1,1) NOT NULL,
 	[VNo] INT NOT NULL,
 	[LastName] NVARCHAR (50) NOT NULL,
 	[FirstName] NVARCHAR (50) NOT NULL,
 	[Date] DATETIME NOT NULL,
-	[PhoneNumber] NCHAR (10) NOT NULL,
+	[PhoneNumber] BIGINT NOT NULL,
 	[CatalogYear] NVARCHAR (7) NOT NULL,
 	[Email] NVARCHAR (50) NOT NULL,
 	[Major] NVARCHAR (50) NOT NULL,
 	[Minor] NVARCHAR (50) NOT NULL,
 	[Advisor] NVARCHAR (50) NOT NULL,
-	CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([VNo] ASC)
+	CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
 BULK INSERT [dbo].[Requests]
