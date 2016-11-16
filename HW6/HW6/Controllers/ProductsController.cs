@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace HW6.Controllers
 {
@@ -14,32 +15,33 @@ namespace HW6.Controllers
         // GET: Products
         public ActionResult Index(int? id)
         {
-            //var categories = db.ProductCategories.ToList();
-            //var cat = db.ProductCategories.Where(p => p.ProductCategoryID == 1).ToList();
-            // var sc = cat[0].ProductSubcategories.ToList()[0];
-            //var prod = sc.Products;
-
-            //ViewBag.Categories = db.ProductCategories.Select(p => p.Name ).ToList();
-            //ViewBag.SubcategoryList = new SelectList(new string[] { });
-
             var cat = db.ProductCategories;
-            if (id != null)
+            if (id != null) // validate id
             {
-                //ViewBag.Hello = "hello world";
-                //ViewBag.Subcategories = db.ProductSubcategories.Where(p => p.ProductCategoryID == id).ToList();
                 ViewBag.ID = id;
             }
 
             return View(cat);
         }
 
-        public ActionResult Products(int? id)
+        public ActionResult Products(int? id/*, int? page*/)
         {
             var products = db.ProductSubcategories.Find(id).Products.ToList();
-            var p = products.First();
-            var pic = p.ProductProductPhotoes;
+           // ViewBag.NumberOfProducts = products.Count;
+           // int pageSize = 6;
+            //int pageNumber = page ?? 1;
+           // var productsPaged = products.Skip(pageSize * (pageNumber-1)).Take(pageSize);
+           // look at Bootstrap pagination
             return View(products);
         }
-      
+
+        public ActionResult ProductImage(int? id, bool? thumbnail)
+        {
+            //validate id
+            // create case for bool
+            var image = db.ProductProductPhotoes.Where(p => p.ProductID == (int)id).FirstOrDefault().ProductPhoto.ThumbNailPhoto;
+            return File(image, "image/gif");
+        }
+
     }
 }

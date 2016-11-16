@@ -4,70 +4,37 @@
     ViewBag.Title = "Products";
 }
 
-<h2>Products</h2>
+<center><h2>@Html.DisplayFor(modelItem => modelItem.First().ProductSubcategory.Name)</h2></center>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductSubcategory.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ListPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiscontinuedDate)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductSubcategory.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ListPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiscontinuedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+        <center><div class="col-md-4" style="padding-bottom: 2em">
+            <div>
+                <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID })" />
+            </div>
+            <div>
+                <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+            </div>
+            <div>
+                ProductNumber: @Html.DisplayFor(modelItem => item.ProductNumber)
+            </div>
+            <div>
+                <strong>$@Html.DisplayFor(modelItem => item.ListPrice)</strong>
+            </div>
+            <div>
                 @Html.ActionLink("Details", "Details", new { id = item.ProductID })
-            </td>
-        </tr>
+            </div>
+        </div></center>
     }
-</table>
+</div>
+<br />
+@*@{ look at Bootstrap pagination
+    int page = 1;
+    for (int i = 0; i < ViewBag.NumberofPages; i = i + 6)
+    {
+        string p = page.ToString();
+        @Html.ActionLink(p, "Products/" + Model.First().ProductSubcategoryID + "/" + page , "Products")
+        page++;
+    }
+}*@
