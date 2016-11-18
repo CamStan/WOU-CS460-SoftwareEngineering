@@ -11,19 +11,16 @@
     {
         <center><div class="col-md-4" style="padding-bottom: 2em">
             <div>
-                <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID })" />
+                <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID, thumbnail = true })" />
             </div>
             <div>
-                <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                <strong>@Html.ActionLink(item.Name, "Product", new { id = item.ProductID })</strong>
             </div>
             <div>
-                ProductNumber: @Html.DisplayFor(modelItem => item.ProductNumber)
+                Product #: @Html.DisplayFor(modelItem => item.ProductNumber)
             </div>
             <div>
                 <strong>$@Html.DisplayFor(modelItem => item.ListPrice)</strong>
-            </div>
-            <div>
-                @Html.ActionLink("Details", "Details", new { id = item.ProductID })
             </div>
         </div></center>
     }

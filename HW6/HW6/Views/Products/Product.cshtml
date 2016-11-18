@@ -1,0 +1,63 @@
+﻿@model HW6.Models.Product
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<center><h2>@Html.DisplayFor(model => model.ProductModel.Name)</h2></center>
+
+<div class="row col-md-12">
+    <h4>
+        <span>@Html.ActionLink(Model.ProductSubcategory.Name, "Products/" + Model.ProductSubcategoryID)</span> >
+        <span>@Html.DisplayFor(model => model.ProductModel.Name)</span>
+    </h4>
+    <hr />
+    <div class="col-md-2">
+        <img src="@Url.Action("ProductImage", "Products", new { ID = Model.ProductID, thumbnail = false })" />
+    </div>
+    <dl class="dl-horizontal col-md-4">
+        <dt>
+            Product #
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            Price
+        </dt>
+
+        <dd>
+            $@Html.DisplayFor(model => model.ListPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size) cm
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight) lbs
+        </dd>
+    </dl>
+</div>
+<br />
+<p>
+    @Html.ActionLink("Back to List", "Products/" + Model.ProductSubcategoryID)
+</p>

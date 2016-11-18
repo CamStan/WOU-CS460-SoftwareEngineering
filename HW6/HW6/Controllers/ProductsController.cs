@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
 
 namespace HW6.Controllers
 {
@@ -35,11 +35,23 @@ namespace HW6.Controllers
             return View(products);
         }
 
+        public ActionResult Product(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var product = db.Products.Find(id);
+            if (product == null)
+                return HttpNotFound();
+            return View(product);
+        }
+
         public ActionResult ProductImage(int? id, bool? thumbnail)
         {
             //validate id
-            // create case for bool
-            var image = db.ProductProductPhotoes.Where(p => p.ProductID == (int)id).FirstOrDefault().ProductPhoto.ThumbNailPhoto;
+            var image = (thumbnail ?? false) ?
+                db.ProductProductPhotoes.Where(p => p.ProductID == (int)id).FirstOrDefault().ProductPhoto.ThumbNailPhoto :
+                db.ProductProductPhotoes.Where(p => p.ProductID == (int)id).FirstOrDefault().ProductPhoto.LargePhoto;
+            
             return File(image, "image/gif");
         }
 
