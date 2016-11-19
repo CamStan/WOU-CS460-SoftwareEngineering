@@ -16,7 +16,7 @@ namespace HW6.Controllers
         public ActionResult Index(int? id)
         {
             var cat = db.ProductCategories;
-            if (id != null) // validate id
+            if (id != null && db.ProductCategories.Find(id) != null) // validate id
             {
                 ViewBag.ID = id;
             }
@@ -26,6 +26,8 @@ namespace HW6.Controllers
 
         public ActionResult Products(int? id/*, int? page*/)
         {
+            if (id == null || db.ProductSubcategories.Find(id) == null)
+                return RedirectToAction("Index");
             var products = db.ProductSubcategories.Find(id).Products.ToList();
            // ViewBag.NumberOfProducts = products.Count;
            // int pageSize = 6;
@@ -65,6 +67,39 @@ namespace HW6.Controllers
                 db.ProductProductPhotoes.Where(p => p.ProductID == (int)id).FirstOrDefault().ProductPhoto.LargePhoto;
             
             return File(image, "image/gif");
+        }
+
+        [HttpGet]
+        public ActionResult Review(int? id)
+        {
+            int pid = id ?? -1;
+            if (id == -1)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var product = db.Products.Find(id);
+
+            if (product == null)
+                return HttpNotFound();
+
+            ProductReview review = db.ProductReviews.Create();
+            review.ProductID = pid;
+            review.Product = product;
+            review.ReviewDate = review.ModifiedDate = DateTime.Now;
+
+            return View(review);
+        }
+
+        [HttpPost]
+        public ActionResult Review(ProductReview review)
+        {
+            if(ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                return RedirectToAction("Product", new { id = review.ProductID });
+            }
+            review.Product = db.Products.Find(review.ProductID);
+            return View(review);
         }
 
     }
