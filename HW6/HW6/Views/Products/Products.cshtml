@@ -9,29 +9,31 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <center><div class="col-md-4" style="padding-bottom: 2em">
-            <div>
-                <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID, thumbnail = true })" />
+        <center>
+            <div class="col-md-4" style="padding-bottom: 2em">
+                <div>
+                    <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID, thumbnail = true })" />
+                </div>
+                <div>
+                    <strong>@Html.ActionLink(item.Name, "Product", new { id = item.ProductID })</strong>
+                </div>
+                <div>
+                    Product #: @Html.DisplayFor(modelItem => item.ProductNumber)
+                </div>
+                <div>
+                    <strong>$@Html.DisplayFor(modelItem => item.ListPrice)</strong>
+                </div>
             </div>
-            <div>
-                <strong>@Html.ActionLink(item.Name, "Product", new { id = item.ProductID })</strong>
-            </div>
-            <div>
-                Product #: @Html.DisplayFor(modelItem => item.ProductNumber)
-            </div>
-            <div>
-                <strong>$@Html.DisplayFor(modelItem => item.ListPrice)</strong>
-            </div>
-        </div></center>
+        </center>
     }
 </div>
 <br />
-@*@{ look at Bootstrap pagination
-    int page = 1;
-    for (int i = 0; i < ViewBag.NumberofPages; i = i + 6)
-    {
-        string p = page.ToString();
-        @Html.ActionLink(p, "Products/" + Model.First().ProductSubcategoryID + "/" + page , "Products")
-        page++;
-    }
-}*@
+@*look at Bootstrap pagination*@
+<div>
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.NumberofPages; ++i)
+        {
+            <li>@Html.ActionLink(i.ToString(), "Products", new { id = Model.FirstOrDefault().ProductSubcategoryID, page = i })</li>
+        }
+    </ul>
+</div>
