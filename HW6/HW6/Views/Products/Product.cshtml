@@ -58,65 +58,51 @@
                 <span>@Html.DisplayFor(model => model.Weight)</span> @ViewBag.WeightUnit<span></span>
             </dd>
         </dl>
-
-        <dl class="dl-horizontal col-md-4">
-            <dt>
-                Rating
-            </dt>
-
-            <dd>
-                @ViewBag.Rating
-            </dd>
-
-            <dt>
-                # of Reviews
-            </dt>
-
-            <dd>
-                @ViewBag.NumOfReviews
-            </dd>
-        </dl>
     </div>
 </div>
 <br />
+
+<p>@Html.ActionLink("Write a Review", "Review", new { id = Model.ProductID })</p>
+
 <div class="row panel-group col-md-12">
     <div class="panel panel-success">
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" href="#collapseReviews">Reviews</a>
+                <span class="pull-right">Rating: @ViewBag.Rating (@ViewBag.NumofReviews)</span>
             </h4>
         </div>
         <div id="collapseReviews" class="panel-collapse collapse">
             <div class="panel-body">
                 @if (ViewBag.NumofReviews == 0)
                 {
-                    <span>Be the first to review this product</span>
+                    <span>@Html.ActionLink("Be the first to review this product", "Review", new { id = Model.ProductID })</span>
                 }
                 else
                 {
                     <table class="table">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.ProductReviews.FirstOrDefault().ReviewerName)
+                                Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ProductReviews.FirstOrDefault().EmailAddress)
+                                Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ProductReviews.FirstOrDefault().Rating)
+                               Rating
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ProductReviews.FirstOrDefault().Comments)
+                                Comments
                             </th>
                         </tr>
-                        @foreach(var item in Model.ProductReviews.ToList())
+                        @foreach(var item in Model.ProductReviews.OrderByDescending(p => p.ReviewDate).ToList())
                         {
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ReviewerName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                                    @Html.DisplayFor(modelItem => item.ReviewDate)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Rating)

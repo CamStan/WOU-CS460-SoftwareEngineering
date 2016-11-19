@@ -11,21 +11,30 @@ namespace HW6.Models
     {
         public int ProductReviewID { get; set; }
 
+        [Required]
         public int ProductID { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "First Name")]
         public string ReviewerName { get; set; }
 
+        [Required]
+        [Display(Name = "Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime ReviewDate { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
+        [Required]
         public int Rating { get; set; }
 
+        [Required]
         [StringLength(3850)]
+        [DataType(DataType.MultilineText)]
         public string Comments { get; set; }
 
         public DateTime ModifiedDate { get; set; }
