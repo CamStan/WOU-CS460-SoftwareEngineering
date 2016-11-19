@@ -39,9 +39,21 @@ namespace HW6.Controllers
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             var product = db.Products.Find(id);
+
             if (product == null)
                 return HttpNotFound();
+
+            ViewBag.NumOfReviews = product.ProductReviews.Count;
+            ViewBag.Rating = ViewBag.NumOfReviews == 0 ? "N/A" : product.ProductReviews.Average(p => p.Rating).ToString() + "/5";
+
+            var sizeUnit = product.SizeUnitMeasureCode;
+            ViewBag.SizeUnit = sizeUnit == null ? "N/A" : product.SizeUnitMeasureCode.ToLower();
+
+            var weightUnit = product.WeightUnitMeasureCode;
+            ViewBag.WeightUnit = weightUnit == null ? "N/A" : product.WeightUnitMeasureCode.ToLower();
+
             return View(product);
         }
 
