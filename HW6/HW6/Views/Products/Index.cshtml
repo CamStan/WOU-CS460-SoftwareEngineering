@@ -3,23 +3,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <div class="row col-md-12">
     <ul class="list-group col-md-4">
+        <h2>Product Categories</h2>
         @foreach (var item in Model.ToList())
         {
             @Html.ActionLink(item.Name, "Index/" + item.ProductCategoryID, new { controller = "Products" }, new { @class = "list-group-item" })
         }
     </ul>
-    <ul class="list-group col-md-offset-1 col-md-4">
+    <div class="col-md-offset-1 col-md-4">
         @if (ViewBag.ID != null)
         {
-            foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.ID).Select(p => p.ProductSubcategories).ToList()[0])
-            {
-                @Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID, new { controller = "Products" }, new { @class = "list-group-item" })
+            <h2>@Model.Where(p => p.ProductCategoryID == ViewBag.ID).FirstOrDefault().Name</h2>
+            <ul class="list-group">
+                @foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.ID).Select(p => p.ProductSubcategories).ToList()[0])
+                {
+                    @Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID, new { controller = "Products" }, new { @class = "list-group-item" })
                 }
+            </ul>
         }
-    </ul>
+    </div>
 </div>
 
