@@ -6,17 +6,19 @@
 <div class="row col-md-12">
     <ul class="list-group col-md-4">
         <h2>Product Categories</h2>
+        <!-- Create a list of links for all of the Product Categories -->
         @foreach (var item in Model.ToList())
         {
             @Html.ActionLink(item.Name, "Index/" + item.ProductCategoryID, new { controller = "Products" }, new { @class = "list-group-item" })
         }
     </ul>
     <div class="col-md-offset-1 col-md-4">
+        <!-- If a Product Category was selected, create a  list of links for that Category's Subcategories -->
         @if (ViewBag.ID != null)
         {
-            <h2>@Model.Where(p => p.ProductCategoryID == ViewBag.ID).FirstOrDefault().Name</h2>
+            <h2>@Model.Where(p => p.ProductCategoryID == ViewBag.ID).FirstOrDefault().Name</h2> <!-- Name of the Category selected -->
             <ul class="list-group">
-                @foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.ID).Select(p => p.ProductSubcategories).ToList()[0])
+                @foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.ID).Select(p => p.ProductSubcategories).ToList().FirstOrDefault())
                 {
                     @Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID, new { controller = "Products" }, new { @class = "list-group-item" })
                 }

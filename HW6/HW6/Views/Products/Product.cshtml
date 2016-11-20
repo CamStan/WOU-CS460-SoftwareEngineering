@@ -4,19 +4,21 @@
     ViewBag.Title = "Product";
 }
 
+<!-- Product Name -->
 <center><h2>@Html.DisplayFor(model => model.ProductModel.Name)</h2></center>
 
 <div class="row col-md-12">
-    <h4>
+    <h4> <!-- Link back to subcategory this product is part of -->
         <span>@Html.ActionLink(Model.ProductSubcategory.Name, "Products/" + Model.ProductSubcategoryID)</span> >
         <span>@Html.DisplayFor(model => model.ProductModel.Name)</span>
     </h4>
     <hr />
+    <!-- Display the image for this product -->
     <div class="row col-md-8">
         <div class="col-md-3">
             <img src="@Url.Action("ProductImage", "Products", new { ID = Model.ProductID, thumbnail = false })" />
         </div>
-
+        <!-- Display the product number, color, price, size, and weight of this product-->
         <dl class="dl-horizontal col-md-5">
             <dt>
                 Product #
@@ -61,19 +63,22 @@
     </div>
 </div>
 <br />
-
+<!-- Link to create a Review for this product -->
 <p>@Html.ActionLink("Write a Review", "Review", new { id = Model.ProductID })</p>
 
+<!-- Drop down panel to view the Reviews of this product -->
 <div class="row panel-group col-md-12">
     <div class="panel panel-success">
         <div class="panel-heading">
             <h4 class="panel-title">
+                <!-- View Reviews toggle link on the left, Product Rating and number of reviews on the right-->
                 <a data-toggle="collapse" href="#collapseReviews">Reviews</a>
                 <span class="pull-right">Rating: @ViewBag.Rating (@ViewBag.NumofReviews)</span>
             </h4>
         </div>
         <div id="collapseReviews" class="panel-collapse collapse">
             <div class="panel-body">
+                <!-- If this product has no reviews, create link to make one, else list the reviews -->
                 @if (ViewBag.NumofReviews == 0)
                 {
                     <span>@Html.ActionLink("Be the first to review this product", "Review", new { id = Model.ProductID })</span>
@@ -96,7 +101,7 @@
                             </th>
                         </tr>
                         @foreach(var item in Model.ProductReviews.OrderByDescending(p => p.ReviewDate).ToList())
-                        {
+                        { <!-- Display the name, date, rating, and comments of each Review -->
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ReviewerName)

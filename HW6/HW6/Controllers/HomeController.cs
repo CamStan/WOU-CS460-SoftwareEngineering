@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
+/// <summary>
+/// Controllers for the home index landing page
+/// </summary>
 namespace HW6.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        /// <summary>
+        /// GET: Home
+        /// HttpGet method for retrieving the View for the home page of HW6
+        /// </summary>
+        /// <returns>The View object for Home/Index</returns>
         public ActionResult Index()
         {
             return View();

@@ -4,9 +4,11 @@
     ViewBag.Title = "Products";
 }
 
-<center><h2>@Html.DisplayFor(modelItem => modelItem.First().ProductSubcategory.Name)</h2></center>
+<!-- Subcategory name -->
+<center><h2>@Html.DisplayFor(modelItem => modelItem.FirstOrDefault().ProductSubcategory.Name)</h2></center>
 
 <div class="row">
+    <!-- Display the image, name, product number, and price of each item -->
     @foreach (var item in Model)
     {
         <center>
@@ -14,7 +16,7 @@
                 <div>
                     <img src="@Url.Action("ProductImage", "Products", new { ID = item.ProductID, thumbnail = true })" />
                 </div>
-                <div>
+                <div> <!-- Product name is the link to that product's details page -->
                     <strong>@Html.ActionLink(item.Name, "Product", new { id = item.ProductID })</strong>
                 </div>
                 <div>
@@ -28,7 +30,7 @@
     }
 </div>
 <br />
-@*look at Bootstrap pagination*@
+<!-- Create page links for the number of pages in this subcategory -->
 <div>
     <ul class="pagination">
         @for (int i = 1; i <= ViewBag.NumberofPages; ++i)

@@ -3,13 +3,15 @@
 @{
     ViewBag.Title = "Review";
 }
-
+<!-- Product this Review is being created for -->
 <h2>@Html.ActionLink(Model.Product.Name, "Product", new { id = Model.ProductID })</h2>
 
+<!-- Form to create a review for the product at the top of this page -->
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
+    <!-- Hidden inputs for dictated attributes. User inputs name, email, rating, and comments -->
     <div class="form-horizontal">
         <h4>Product Review</h4>
         <hr />
