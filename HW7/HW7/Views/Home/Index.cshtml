@@ -5,3 +5,20 @@
 
 <h2>Index</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="stockSymbol">Stock Symbol:</label>
+        <div class="col-md-2">
+            <input type="text" id="stockSymbol" name="stockSymbol" class="form-control" />
+        </div>
+        <input type="button" id="request" name="request" class="btn btn-default" value="Request" />
+    </div>
+</form>
+
+<div id="graphdiv"></div>
+
+@section StockScripts
+{
+    <script type="text/javascript" src="~/Scripts/dygraph-combined-dev.js"></script>
+    <script type="text/javascript" src="~/Scripts/stocks.js"></script>    
+}
