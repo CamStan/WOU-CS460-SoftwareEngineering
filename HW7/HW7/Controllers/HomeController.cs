@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HW7.DAL;
+using HW7.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,11 +37,13 @@ namespace HW7.Controllers
                                 title = symbol.ToUpper(),
                                 error = 0
                             };
+                            LogStockRequest(data.title);
                             return Json(data, JsonRequestBehavior.AllowGet);
                         }
                     }
                     else
                     {
+                        LogStockRequest(symbol);
                         var data = new { error = "Invalid Stock Symbol" };
                         return Json(data, JsonRequestBehavior.AllowGet);
                     }
@@ -47,8 +51,30 @@ namespace HW7.Controllers
             }
             catch (WebException wex)
             {
+                LogStockRequest(symbol);
                 var data = new { error = "Invalid Stock Symbol" };
                 return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult RequestLog()
+        {
+            using (StockRequestContext db = new StockRequestContext())
+                return View(db.StockRequests.ToList());
+        }
+
+        private void LogStockRequest(string symbol)
+        {
+            using (StockRequestContext db = new StockRequestContext())
+            {
+                StockRequest request = db.StockRequests.Create();
+                request.StockSymbol = symbol;
+                request.Date = DateTime.Now;
+                string ip = Request.UserHostAddress;
+                request.IP_Address = ip.Equals("::1") ? "127.0.0.1" : ip;
+                request.Browser = Request.Browser.Type;
+                db.StockRequests.Add(request);
+                db.SaveChanges();
             }
         }
 
