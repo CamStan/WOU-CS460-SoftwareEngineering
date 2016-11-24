@@ -3,22 +3,43 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div id="logo" class="row">
+    <h1><span><strong>Stock </strong></span><span class="glyphicon glyphicon-ok"></span></h1>
 
-<form class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-md-2" for="stockSymbol">Stock Symbol:</label>
-        <div class="col-md-2">
-            <input type="text" id="stockSymbol" name="stockSymbol" class="form-control" />
+    @*<div class="col-md-4">
+        <div id="logo2"></div>
+    </div>*@
+
+    <div class="col-md-offset-6 col-md-6">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-4" for="stockSymbol">Stock Symbol:</label>
+                <div class="col-md-4">
+                    <input type="text" id="stockSymbol" name="stockSymbol" class="form-control" />
+                </div>
+                <input type="button" id="request" name="request" class="btn btn-default" value="Request" />
+            </div>
+        </form>
+
+        <div id="graphOutput">
+            <div id="graphdiv"></div><br />
+            <div id="checkboxes">
+                <label for="0" class="checkbox-inline"><input id="0" type="checkbox" checked onClick="change(this)">Open</label>
+                <label for="1" class="checkbox-inline"><input id="1" type="checkbox" checked onClick="change(this)">High</label>
+                <label for="2" class="checkbox-inline"><input id="2" type="checkbox" checked onClick="change(this)">Low</label>
+                <label for="3" class="checkbox-inline"><input id="3" type="checkbox" checked onClick="change(this)">Close</label>
+                <label for="5" class="checkbox-inline"><input id="5" type="checkbox" checked onClick="change(this)">Adj Close</label>
+                <label for="4" class="checkbox-inline"><input id="4" type="checkbox" checked onClick="change(this)">Volume</label>
+            </div>
         </div>
-        <input type="button" id="request" name="request" class="btn btn-default" value="Request" />
     </div>
-</form>
+</div>
 
-<div id="graphdiv"></div>
+<div id="test"></div>
 
 @section StockScripts
 {
+    <link href="~/Content/stocks.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="~/Scripts/dygraph-combined-dev.js"></script>
-    <script type="text/javascript" src="~/Scripts/stocks.js"></script>    
+    <script type="text/javascript" src="~/Scripts/stocks.js"></script>
 }

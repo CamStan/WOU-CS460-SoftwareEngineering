@@ -27,10 +27,26 @@ namespace HW7.Controllers
             StreamReader reader = new StreamReader(csvResponse.GetResponseStream());
             string file = reader.ReadToEnd();
             reader.Close();
-            var data = new { csv = file };
+            var data = new { csv = file,
+                title = symbol.ToUpper() };
             //var data = new { message = symbol };
 
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+
+        //public JsonResult Symbols()
+        //{
+        //    var url = "http://oatsreportable.finra.org/OATSReportableSecurities-SOD.txt";
+
+        //    WebRequest symRequest = WebRequest.Create(url);
+        //    WebResponse symResponse = symRequest.GetResponse();
+        //    StreamReader reader = new StreamReader(symResponse.GetResponseStream());
+        //    string file = reader.ReadToEnd();
+        //    reader.Close();
+
+        //    var data = new { txt = file[1] };
+
+        //    return Json(data, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

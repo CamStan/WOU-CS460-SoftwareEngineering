@@ -11,24 +11,54 @@
     });
 });
 
+var graph;
+
 function displayStocks(data) {
+    console.log(data);
     graph = new Dygraph(
         document.getElementById("graphdiv"),
         data.csv,
         {
             rollPeriod: 7,
             showRoller: true,
-            Volume : {
-                axis: 'y2'
-            },
-            axis: {
-                y2: {
-                    labelsKMB: true
+            title: data.title,
+            xlabel: 'Date',
+            ylabel: 'Open, High, Low, Close, Adj Close',
+            y2label: 'Volume',
+            series: {
+                Volume: {
+                    axis: 'y2'
                 }
             },
-            //ylabel: 'Primary y-axis',
-            y1label: 'Secondary y-axis'
+            axes: {
+                y2: {
+                    labelsKMB: true,
+                    drawGrid: true,
+                    independentTicks: true
+                }
+            }
         }
         );
-    //$("#graphdiv").text(data.csv);
 }
+
+function change(el) {
+    graph.setVisibility(parseInt(el.id), el.checked);
+}
+
+//$("#request").click(function () {
+//    //var symbol = $("#stockSymbol").val();
+//    //console.log(symbol);
+//    var source = "/Home/Symbols/";
+//    console.log(source);
+//    $.ajax({
+//        type: "GET",
+//        datatype: "json",
+//        url: source,
+//        success: displaySymbol
+//    });
+//});
+
+//function displaySymbol(data) {
+//    console.log(data);
+//    $("#test").text(data.txt);
+//}
