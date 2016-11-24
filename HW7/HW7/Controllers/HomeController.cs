@@ -18,20 +18,38 @@ namespace HW7.Controllers
 
         public JsonResult Stocks(string symbol)
         {
-            //validate symbol
-            string stockSymbol = symbol;
             var url = $"http://chart.finance.yahoo.com/table.csv?s={symbol}&a=9&b=22&c=2016&d=10&e=22&f=2016&g=d&ignore=.csv";
-            // web request class
-            WebRequest csvRequest = WebRequest.Create(url);
-            WebResponse csvResponse = csvRequest.GetResponse();
-            StreamReader reader = new StreamReader(csvResponse.GetResponseStream());
-            string file = reader.ReadToEnd();
-            reader.Close();
-            var data = new { csv = file,
-                title = symbol.ToUpper() };
-            //var data = new { message = symbol };
+            var csvRequest = (HttpWebRequest)WebRequest.Create(url);
+            try
+            {
+                using (var csvResponse = csvRequest.GetResponse() as HttpWebResponse)
+                {
+                    if (csvRequest.HaveResponse && csvResponse != null)
+                    {
+                        using (var reader = new StreamReader(csvResponse.GetResponseStream()))
+                        {
+                            string file = reader.ReadToEnd();
+                            reader.Close();
 
-            return Json(data, JsonRequestBehavior.AllowGet);
+                            var data = new { csv = file,
+                                title = symbol.ToUpper(),
+                                error = 0
+                            };
+                            return Json(data, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    else
+                    {
+                        var data = new { error = "Invalid Stock Symbol" };
+                        return Json(data, JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+            catch (WebException wex)
+            {
+                var data = new { error = "Invalid Stock Symbol" };
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
         }
 
         //public JsonResult Symbols()
