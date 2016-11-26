@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace HW7
@@ -17,6 +13,12 @@ namespace HW7
                 name: "Stock",
                 url: "Home/Stocks/{symbol}",
                 defaults: new {controller = "Home", action = "Stocks", symbol = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Defintion",
+                url: "Home/Definition/{key}",
+                defaults: new {controller = "Home", action = "Definition", symbol = UrlParameter.Optional}    
             );
 
             routes.MapRoute(

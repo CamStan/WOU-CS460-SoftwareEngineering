@@ -55,20 +55,21 @@ function change(el) {
     graph.setVisibility(parseInt(el.id), el.checked);
 }
 
-//$("#request").click(function () {
-//    //var symbol = $("#stockSymbol").val();
-//    //console.log(symbol);
-//    var source = "/Home/Symbols/";
-//    console.log(source);
-//    $.ajax({
-//        type: "GET",
-//        datatype: "json",
-//        url: source,
-//        success: displaySymbol
-//    });
-//});
+$("#define").click(function () {
+    var word = $('#word').val();
+    console.log(word);
+    var source = "/Home/Definition/" + word;
+    console.log(source);
+    $.ajax({
+        type: "GET",
+        datatype: "json",
+        url: source,
+        success: defineWord
+    });
+});
 
-//function displaySymbol(data) {
-//    console.log(data);
-//    $("#test").text(data.txt);
-//}
+function defineWord(data) {
+    console.log(data.word);
+    console.log(data.def)
+    $("#definition").text(data.word + ": " + data.def);
+}

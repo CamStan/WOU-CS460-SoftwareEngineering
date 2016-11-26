@@ -1,11 +1,10 @@
 ﻿using HW7.DAL;
 using HW7.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 
 namespace HW7.Controllers
@@ -20,7 +19,13 @@ namespace HW7.Controllers
 
         public JsonResult Stocks(string symbol)
         {
-            var url = $"http://chart.finance.yahoo.com/table.csv?s={symbol}&a=9&b=22&c=2016&d=10&e=22&f=2016&g=d&ignore=.csv";
+            var today = DateTime.Today;
+            var day = today.Day == 31 ? 30 : today.Day;
+            var month = today.Month == 1 ? 12 : today.Month - 1;
+            var smonth = month == 1 ? 12 : month - 1;
+            var year = month == 12 ? today.Year - 1 : today.Year;
+            var syear = smonth == 12 ? today.Year - 1 : today.Year;
+            var url = $"http://chart.finance.yahoo.com/table.csv?s={symbol}&a={smonth}&b={day}&c={syear}&d={month}&e={day}&f={year}&g=d&ignore=.csv";
             var csvRequest = (HttpWebRequest)WebRequest.Create(url);
             try
             {
@@ -33,7 +38,9 @@ namespace HW7.Controllers
                             string file = reader.ReadToEnd();
                             reader.Close();
 
-                            var data = new { csv = file,
+                            var data = new
+                            {
+                                csv = file,
                                 title = symbol.ToUpper(),
                                 error = 0
                             };
@@ -78,19 +85,91 @@ namespace HW7.Controllers
             }
         }
 
-        //public JsonResult Symbols()
-        //{
-        //    var url = "http://oatsreportable.finra.org/OATSReportableSecurities-SOD.txt";
+        public JsonResult Definition(string key)
+        {
+            string searchKey = key.ToLower().Replace(' ', '+');
+            var url = $"http://services.aonaware.com/DictService/Default.aspx?action=define&dict=*&query={searchKey}";
+            WebRequest def = WebRequest.Create(url);
+            WebResponse defResponse = def.GetResponse();
+            StreamReader reader = new StreamReader(defResponse.GetResponseStream());
+            string file = reader.ReadToEnd();
+            reader.Close();
 
-        //    WebRequest symRequest = WebRequest.Create(url);
-        //    WebResponse symResponse = symRequest.GetResponse();
-        //    StreamReader reader = new StreamReader(symResponse.GetResponseStream());
-        //    string file = reader.ReadToEnd();
-        //    reader.Close();
+            string definition = GetDefinition(file, key);
 
-        //    var data = new { txt = file[1] };
+            var data = new 
+            {
+                word = key,
+                def = definition
+            };
 
-        //    return Json(data, JsonRequestBehavior.AllowGet);
-        //}
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        private string GetDefinition(string file, string key)
+        {
+            string[] sfile = file.Split('\n');
+            string definition = null;
+            bool found = false;
+            if (key.Equals("Stock"))
+            {
+                foreach (string s in sfile)
+                {
+                    if (found && s.Trim().StartsWith("8."))
+                        break;
+                    if (found)
+                        definition = definition + " " + Regex.Replace(s.Trim(), "<.*?>", "");
+                    if (s.Trim().StartsWith("7."))
+                    {
+                        definition = s.Trim();
+                        found = true;
+                    }
+                }
+            }
+            if (key.Equals("Bond"))
+            {
+                foreach (string s in sfile)
+                {
+                    if (found && s.Trim().StartsWith("7."))
+                        break;
+                    if (found)
+                        definition = definition + " " + s.Trim();
+                    if (s.Trim().StartsWith("6."))
+                    {
+                        definition = s.Trim();
+                        found = true;
+                    }
+                }
+            }
+            if (key.Equals("Mutual Fund"))
+            {
+                foreach (string s in sfile)
+                {
+                    if (found)
+                        definition = definition + " " + s.Trim().Split('[').First();
+                    if (found && s.Trim().StartsWith(""))
+                        break;
+                    if (s.Trim().StartsWith("n :"))
+                    {
+                        definition = s.Trim().Split(':').Last();
+                        found = true;
+                    }
+                }
+            }
+            if (key.Equals("Certificate of Deposit"))
+            {
+                foreach (string s in sfile)
+                {
+                    if (found && s.StartsWith(""))
+                        break;
+                    if (s.Trim().StartsWith("n :"))
+                    {
+                        definition = s.Trim().Split(':').Last();
+                        found = true;
+                    }
+                }
+            }
+            return definition;
+        }
     }
 }
