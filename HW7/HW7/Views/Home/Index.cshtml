@@ -5,20 +5,23 @@
 
 <div id="logo" class="row">
     <div class="col-md-6">
+        <!-- Website name -->
         <h1><span><strong>Stock </strong></span><span class="glyphicon glyphicon-ok"></span></h1>
     </div>
 
     <div class="col-md-offset-6 col-md-6">
+        <!-- Form for user to input a stock symbol -->
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-md-4" for="stockSymbol">Stock Symbol:</label>
                 <div class="col-md-4">
-                    <input type="text" id="stockSymbol" name="stockSymbol" class="form-control" />
+                    <input type="text" id="stockSymbol" name="stockSymbol" class="form-control" maxlength="10" />
                 </div>
                 <input type="button" id="request" name="request" class="btn btn-default" value="Request" />
             </div>
         </form>
 
+        <!-- Output area for the dygraph and checkboxes to manipulate which series to display in the graph -->
         <div id="graphOutput" class="hidden">
             <div id="graphdiv"></div><br />
             <div id="checkboxes">
@@ -30,10 +33,12 @@
                 <label for="4" class="checkbox-inline"><input id="4" type="checkbox" checked onClick="change(this)">Volume</label>
             </div>
         </div>
+        <!-- Error message output div -->
         <div><span id="error-block" class="hidden"></span></div>
         
         <br />
 
+        <!-- Form for user to define a word word relevent to this application -->
         <form id="defSelect" class="form-horizontal">
             <div class="col-md-offset-3 col-md-5">
                 @Html.DropDownList("word", new SelectList(new string[] { "Stock", "Bond", "Mutual Fund", "Certificate of Deposit" }), null, new { @class = "form-control" })
@@ -41,13 +46,14 @@
             <input type="button" id="define" name="define" class="btn btn-default" value="Define" />
         </form><br />
 
-        <div><p id="definition"></p></div>
+        <!-- Output div for the definition of the selected word -->
+        <div><p id="definition" class="hidden"></p></div>
     </div>
 </div><br />
+<!-- Link to view the log of stock symbol requests made on this application -->
 <div>@Html.ActionLink("Stock Request Log", "RequestLog")</div>
 
-<div id="test"></div>
-
+<!-- Javascript and CSS files to have rendered for this page after JQuery is rendered in the _Layout.cshtml file -->
 @section StockScripts
 {
     <link href="~/Content/stocks.css" rel="stylesheet" type="text/css" />
