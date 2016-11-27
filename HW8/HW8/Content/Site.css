@@ -16,3 +16,18 @@ textarea {
     max-width: 280px;
 }
 
+.navIcon {
+    width: 50px;
+    margin: .5em 1em 0 0;
+}
+
+.pirateFlag {
+    width: 100px;    
+    margin: 0 1em 0 1em;
+}
+
+.imageLink {
+    width: 200px;
+    display: block;
+    margin: auto;
+}

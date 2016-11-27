@@ -3,5 +3,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<center><h2><img class="pirateFlag" src="~/Images/pirateFlag.png" />Welcome to the Pirate's Union!<img class="pirateFlag" src="~/Images/pirateFlag.png" /></h2></center>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <a href="@Url.Action("Index", "Pirates")">
+            <img class="imageLink img-responsive" src="@Url.Content("~/Images/pirate.png")" title="Pirates" />
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Index", "Ships")">
+            <img class="imageLink img-responsive" src="@Url.Content("~/Images/pirateShip.png")" title="Ships" />
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Index", "Crews")">
+            <img class="imageLink img-responsive" src="@Url.Content("~/Images/pirateCrew.png")" title="Crews" />
+        </a>
+    </div>
+</div>

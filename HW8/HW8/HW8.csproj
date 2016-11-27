@@ -108,6 +108,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\pirate.png" />
+    <Content Include="Images\pirateCrew.png" />
+    <Content Include="Images\pirateFlag.png" />
+    <Content Include="Images\pirateIcon.png" />
+    <Content Include="Images\pirateShip.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
