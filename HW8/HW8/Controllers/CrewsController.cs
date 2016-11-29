@@ -14,7 +14,7 @@ namespace HW8.Controllers
         // GET: Crews
         public ActionResult Index()
         {
-            return View(db.Crews.ToList());
+            return View(db.Crews.OrderBy(s => s.Ship.Name).ThenBy(p => p.Pirate.FirstName).ToList());
         }
     }
 }

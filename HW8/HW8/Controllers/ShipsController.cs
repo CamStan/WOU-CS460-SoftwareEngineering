@@ -13,7 +13,7 @@ namespace HW8.Controllers
         public ActionResult Index()
         {
             using (PirateUnionContext db = new PirateUnionContext())
-                return View(db.Ships.ToList());
+                return View(db.Ships.OrderBy(s => s.Name).ToList());
         }
     }
 }

@@ -29,6 +29,7 @@ namespace HW8.Models
         public string NickName { get; set; }
 
         [Column(TypeName = "datetime2")]
+        [Display(Name = "Conscription Date"),DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MMMM dd, yyyy}")]
         public DateTime ConscriptionDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

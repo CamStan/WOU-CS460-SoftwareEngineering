@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Crew.cs" />
+    <Compile Include="Models\Partials.cs" />
     <Compile Include="Models\Pirate.cs" />
     <Compile Include="Models\PirateUnionContext.cs" />
     <Compile Include="Models\Ship.cs" />

@@ -15,7 +15,7 @@ namespace HW8.Controllers
         // GET: Pirates
         public ActionResult Index()
         {
-            return View(db.Pirates.ToList());
+            return View(db.Pirates.OrderBy(p => p.FirstName).ToList());
         }
     }
 }

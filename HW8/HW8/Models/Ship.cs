@@ -18,6 +18,7 @@ namespace HW8.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Ship Name")]
         public string Name { get; set; }
 
         [Required]
