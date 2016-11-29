@@ -1,4 +1,5 @@
 ﻿using HW8.Models;
+using HW8.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace HW8.Controllers
         // GET: Crews
         public ActionResult Index()
         {
-            return View(db.Crews.OrderBy(s => s.Ship.Name).ThenBy(p => p.Pirate.FirstName).ToList());
+            var ships = db.Ships.OrderBy(s => s.Name).ToList();
+            var crews = db.Crews.OrderBy(p => p.Pirate.FirstName).ToList();
+            ShipCrews sc = new ShipCrews { TheShips = ships, TheCrews = crews };
+
+            return View(sc);
         }
     }
 }

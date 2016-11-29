@@ -1,41 +1,39 @@
-﻿@model IEnumerable<HW8.Models.Crew>
+﻿@model HW8.ViewModels.ShipCrews
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Crews</h2>
+<center><h2>Ship Crews</h2></center>
 
 <div class="row">
-    <div class="col-md-6">
-        <table class="table table-striped">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ship.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Pirate.FullName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Booty)
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+    @foreach (var ship in Model.TheShips)
+    {
+        <div class="col-md-4">
+            <table class="table table-striped">
+                <caption><h4>@Html.DisplayName(ship.Name)</h4></caption>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ship.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Pirate.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Booty)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TheCrews.FirstOrDefault().Pirate.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TheCrews.FirstOrDefault().Booty)
+                    </th>
                 </tr>
-            }
 
-        </table>
-    </div>
+                @foreach (var item in Model.TheCrews.Where(i => i.Ship == ship))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pirate.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Booty)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    }
 </div>
