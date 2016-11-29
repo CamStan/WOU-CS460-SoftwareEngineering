@@ -30,6 +30,7 @@ namespace HW8.Models
         [StringLength(50)]
         public string NickName { get; set; }
 
+        [Required]
         [Column(TypeName = "datetime2")]
         [Display(Name = "Conscription Date"),DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MMMM dd, yyyy}")]
         public DateTime ConscriptionDate { get; set; }

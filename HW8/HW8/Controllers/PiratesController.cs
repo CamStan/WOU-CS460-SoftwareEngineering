@@ -37,5 +37,29 @@ namespace HW8.Controllers
 
             return View(pirate);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Pirate pirate)
+        {
+            if (ModelState.IsValid && pirate.ConscriptionDate < DateTime.Now)
+            {
+                db.Pirates.Add(pirate);
+                //db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            if (pirate.ConscriptionDate > DateTime.Now)
+            {
+                ViewBag.Error = 1;
+                ViewBag.ErrorMessage = "Conscription Date cannot be in the future";
+            }
+
+            return View(pirate);
+        }
     }
 }
