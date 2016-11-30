@@ -25,7 +25,7 @@ namespace HW8.Models
             modelBuilder.Entity<Pirate>()
                 .HasMany(e => e.Crews)
                 .WithRequired(e => e.Pirate)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Ship>()
                 .HasMany(e => e.Crews)

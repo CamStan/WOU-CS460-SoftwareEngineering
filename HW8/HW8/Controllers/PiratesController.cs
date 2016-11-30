@@ -50,7 +50,7 @@ namespace HW8.Controllers
             if (ModelState.IsValid && pirate.ConscriptionDate < DateTime.Now)
             {
                 db.Pirates.Add(pirate);
-                //db.SaveChanges();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             if (pirate.ConscriptionDate > DateTime.Now)
@@ -87,8 +87,8 @@ namespace HW8.Controllers
             {
                 var oldPirate = db.Pirates.Find(newPirate.ID);
                 UpdateModel(oldPirate);
-                //db.SaveChanges();
-                return RedirectToAction("Index");
+                db.SaveChanges();
+                return RedirectToAction("Details", new { id = oldPirate.ID } );
             }
             if (newPirate.ConscriptionDate > DateTime.Now)
             {
@@ -97,6 +97,33 @@ namespace HW8.Controllers
             }
 
             return View(newPirate);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var pirate = db.Pirates.Find(id);
+
+            if (pirate == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(pirate);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            Pirate pirate = db.Pirates.Find(id);
+            db.Pirates.Remove(pirate);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

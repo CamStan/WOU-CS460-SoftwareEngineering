@@ -1,0 +1,56 @@
+﻿@model HW8.Models.Pirate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Pirate</h2>
+
+<h3>Make this pirate walk the plank?</h3>
+<div>
+    <hr />
+    <h4>@Html.DisplayFor(model => model.FullName)</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NickName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NickName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConscriptionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConscriptionDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
