@@ -153,6 +153,7 @@
     <Content Include="Views\Crews\Index.cshtml" />
     <Content Include="Views\Pirates\Details.cshtml" />
     <Content Include="Views\Pirates\Create.cshtml" />
+    <Content Include="Views\Pirates\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

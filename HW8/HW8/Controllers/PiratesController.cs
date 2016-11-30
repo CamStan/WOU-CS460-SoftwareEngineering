@@ -61,5 +61,42 @@ namespace HW8.Controllers
 
             return View(pirate);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var pirate = db.Pirates.Find(id);
+
+            if (pirate == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(pirate);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Pirate newPirate)
+        {
+            if (ModelState.IsValid && newPirate.ConscriptionDate < DateTime.Now)
+            {
+                var oldPirate = db.Pirates.Find(newPirate.ID);
+                UpdateModel(oldPirate);
+                //db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            if (newPirate.ConscriptionDate > DateTime.Now)
+            {
+                ViewBag.Error = 1;
+                ViewBag.ErrorMessage = "Conscription Date cannot be in the future";
+            }
+
+            return View(newPirate);
+        }
     }
 }
