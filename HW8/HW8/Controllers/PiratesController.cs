@@ -14,9 +14,22 @@ namespace HW8.Controllers
         private PirateUnionContext db = new PirateUnionContext();
 
         // GET: Pirates
-        public ActionResult Index()
+        public ActionResult Index(int? page = 1)
         {
-            return View(db.Pirates.OrderBy(p => p.FirstName).ToList());
+            var pirates = db.Pirates.OrderBy(p => p.FirstName).ToList();
+
+            int pageSize = 3;
+            double numOfPages = Math.Ceiling((double)pirates.Count / pageSize);
+
+            int pageNumber = page ?? 0;
+            if (page < 1 || page > numOfPages)
+                return HttpNotFound();
+
+            ViewBag.NumberOfPages = numOfPages;
+
+            var pagedPirates = pirates.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
+
+            return View(pagedPirates);
         }
 
         public ActionResult Details(int? id)

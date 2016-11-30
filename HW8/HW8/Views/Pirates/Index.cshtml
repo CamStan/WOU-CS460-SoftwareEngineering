@@ -42,3 +42,12 @@
         </table>
     </div>
 </div>
+<br />
+<div>
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.NumberofPages; ++i)
+        {
+            <li>@Html.ActionLink(i.ToString(), "Index", new { page = i })</li>
+        }
+    </ul>
+</div>
