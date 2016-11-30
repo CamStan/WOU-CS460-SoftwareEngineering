@@ -43,9 +43,16 @@
         <dt>
             Ships Crewed
         </dt>
-            @foreach (var item in Model.Crews.OrderBy(s => s.Ship.Name))
+            @if (ViewBag.NumOfShips == 0)
             {
-                <dd>@item.Ship.Name</dd>
+                <dd>None</dd>
+            }
+            else
+            {
+                foreach (var item in Model.Crews.OrderBy(s => s.Ship.Name))
+                {
+                    <dd>@item.Ship.Name</dd>
+                }
             }
         <dt>
             Total Booty

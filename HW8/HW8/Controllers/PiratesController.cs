@@ -33,6 +33,7 @@ namespace HW8.Controllers
                 return HttpNotFound();
             }
 
+            ViewBag.NumOfShips = pirate.Crews.Count();
             ViewBag.TotalBooty = "$" + pirate.Crews.Sum(b => b.Booty);
 
             return View(pirate);
