@@ -4,10 +4,12 @@
     ViewBag.Title = "Details";
 }
 
+<!-- Full name of the pirate -->
 <h2>@Html.DisplayFor(model => model.FullName)</h2>
 
 <div>
     <hr />
+    <!-- Display the details of a pirate -->
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -40,6 +42,7 @@
         <dd>
             @Html.DisplayFor(model => model.ConscriptionDate)
         </dd>
+        <!-- List all the ships this pirate has been on, if any -->
         <dt>
             Ships Crewed
         </dt>
@@ -54,6 +57,7 @@
                     <dd>@item.Ship.Name</dd>
                 }
             }
+        <!-- Show the total booty haul for this pirate -->
         <dt>
             Total Booty
         </dt>

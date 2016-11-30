@@ -7,10 +7,12 @@
 <center><h2>Ship Crews</h2></center>
 
 <div class="row">
+    <!-- Loop to go through each ship and gather its crew -->
     @foreach (var ship in Model.TheShips)
     {
         <div class="col-md-4">
             <table class="table table-striped">
+                <!-- Name of the ship -->
                 <caption><h4>@Html.DisplayName(ship.Name)</h4></caption>
                 <tr>
                     <th>
@@ -20,7 +22,7 @@
                         @Html.DisplayNameFor(model => model.TheCrews.FirstOrDefault().Booty)
                     </th>
                 </tr>
-
+                <!-- List all the pirates that have crewed the ship of this loop iteration -->
                 @foreach (var item in Model.TheCrews.Where(i => i.Ship == ship))
                 {
                     <tr>

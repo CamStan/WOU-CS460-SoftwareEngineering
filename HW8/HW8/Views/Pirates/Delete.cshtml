@@ -9,6 +9,7 @@
 <h3>Make this pirate walk the plank?</h3>
 <div>
     <hr />
+    <!-- Full name of the pirate to be deleted -->
     <h4>@Html.DisplayFor(model => model.FullName)</h4>
     <dl class="dl-horizontal">
         <dt>
@@ -48,6 +49,7 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
+        <!-- Button to confirm deletion of this pirate -->
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")

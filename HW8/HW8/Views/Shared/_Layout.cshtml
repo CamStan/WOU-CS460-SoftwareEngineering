@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Pirate's Union</title>
+    <title>@ViewBag.Title - Pirates' Union</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <span>
+                    <!-- Skull and cross-swords icon -->
                     <img class="navIcon navbar-left" src="~/Images/pirateIcon.png" />
-                    @Html.ActionLink("Pirate's Union", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Pirates' Union", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </span>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                    <li class="dropdown"> <!-- Dropdown for the three views -->
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Union
                             <span class="caret"></span>
@@ -35,6 +36,7 @@
                             <li>@Html.ActionLink("Crews", "Index", "Crews")</li>
                         </ul>
                     </li>
+                    <!-- Link to the Booty page -->
                     <li>@Html.ActionLink("Booty", "Booty", "Home")</li>
                 </ul>
             </div>
@@ -51,6 +53,7 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Render the javascript for the Booty page -->
     @RenderSection("BootyScripts", required: false)
 </body>
 </html>

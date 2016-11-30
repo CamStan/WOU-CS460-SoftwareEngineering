@@ -16,16 +16,19 @@ textarea {
     max-width: 280px;
 }
 
+/* SKull and cross-swords logo next to website name on navbar */
 .navIcon {
     width: 50px;
     margin: .5em 1em 0 0;
 }
 
+/* Two pirate flags next to the welcome message */
 .pirateFlag {
     width: 100px;    
     margin: 0 1em 0 1em;
 }
 
+/* Three image links on home page that link to the three views */
 .imageLink {
     width: 200px;
     display: block;

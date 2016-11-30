@@ -6,6 +6,7 @@
 
 <h2>Create New Pirate</h2>
 
+<!-- Form to create a new pirate -->
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -41,6 +42,7 @@
             @Html.LabelFor(model => model.ConscriptionDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ConscriptionDate, new { htmlAttributes = new { @class = "form-control", min = "01/01/1000", max = "12/09/2016", placeholder = "mm/dd/yyyy" } })
+                <!-- Custom error message to be displayed if the input conscription date was in the future -->
                 @if (ViewBag.Error == 1)
                 {
                     @Html.ValidationMessageFor(model => model.ConscriptionDate, (string)ViewBag.ErrorMessage, new { @class = "text-danger" })

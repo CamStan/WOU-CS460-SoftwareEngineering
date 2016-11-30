@@ -3,9 +3,11 @@
     ViewBag.Title = "Index";
 }
 
-<center><h2><img class="pirateFlag" src="~/Images/pirateFlag.png" />Welcome to the Pirate's Union!<img class="pirateFlag" src="~/Images/pirateFlag.png" /></h2></center>
+<!-- Welcome banner with two pirate flags -->
+<center><h2><img class="pirateFlag" src="~/Images/pirateFlag.png" />Welcome to the Pirates' Union!<img class="pirateFlag" src="~/Images/pirateFlag.png" /></h2></center>
 <br />
 <div class="row">
+    <!-- Clip art links to the three views -->
     <div class="col-md-4">
         <a href="@Url.Action("Index", "Pirates")">
             <img class="imageLink img-responsive" src="@Url.Content("~/Images/pirate.png")" title="Pirates" />

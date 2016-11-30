@@ -9,6 +9,9 @@ namespace HW8.Models
 {
     public partial class Pirate
     {
+        /// <summary>
+        /// Method to retrieve the formated, full name of a pirate
+        /// </summary>
         [Display(Name = "Pirate Name")]
         public string FullName { get { return $"{FirstName} \"{NickName}\" {LastName}"; } }
     }
