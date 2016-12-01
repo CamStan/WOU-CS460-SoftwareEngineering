@@ -115,6 +115,7 @@
     <Content Include="Images\pirateShip.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\cstanavige-cs460-hw8 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\booty.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
