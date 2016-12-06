@@ -18,6 +18,7 @@ namespace Final.Models
 
         [Required]
         [StringLength(100)]
+        [Display(Name ="Art Piece")]
         public string Title { get; set; }
 
         public int ArtistID { get; set; }

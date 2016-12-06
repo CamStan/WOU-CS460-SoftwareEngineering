@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Final.Models.Classification>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Art Classifications</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArtWork.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre.Name)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArtWork.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre.Name)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

@@ -24,7 +24,9 @@ namespace Final.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
+        [Required]
         [Column(TypeName = "datetime2")]
+        [Display(Name = "Birth Date"), DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MMMM dd, yyyy}")]
         public DateTime BirthDate { get; set; }
 
         [Required]

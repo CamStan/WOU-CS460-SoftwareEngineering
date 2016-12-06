@@ -118,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\ArtWorkController.cs" />
+    <Compile Include="Controllers\ClassificationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,6 +130,7 @@
     <Compile Include="Models\ArtWork.cs" />
     <Compile Include="Models\Classification.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Partials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +143,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Classification\Index.cshtml" />
+    <Content Include="Views\ArtWork\Index.cshtml" />
+    <Content Include="Views\Artist\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
