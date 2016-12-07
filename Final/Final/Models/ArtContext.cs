@@ -22,7 +22,7 @@ namespace Final.Models
             modelBuilder.Entity<Artist>()
                 .HasMany(e => e.ArtWorks)
                 .WithRequired(e => e.Artist)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<ArtWork>()
                 .HasMany(e => e.Classifications)

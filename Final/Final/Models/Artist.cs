@@ -18,10 +18,12 @@ namespace Final.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
@@ -31,10 +33,12 @@ namespace Final.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Birth City")]
         public string BirthCity { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Birth Country")]
         public string BirthCountry { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
